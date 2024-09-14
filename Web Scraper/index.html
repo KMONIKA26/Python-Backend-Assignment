@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nifty 50 Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 30%;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .last-updated {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nifty 50 Data</h1>
+        <div class="cards">
+            {% for stock in nifty_data %}
+            <div class="card">
+                <h3>{{ stock.name }}</h3>
+                <p><strong>Last Price:</strong> {{ stock.last_price }}</p>
+                <p><strong>Change:</strong> {{ stock.change }}</p>
+                <p><strong>Percentage Change:</strong> {{ stock.percentage_change }}%</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="last-updated">
+            <p>Last Updated: {{ last_updated }}</p>
+        </div>
+    </div>
+</body>
+</html>
